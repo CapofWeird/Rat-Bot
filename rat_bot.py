@@ -4,9 +4,6 @@ import discord
 
 client = discord.Client()
 
-activity_type = discord.ActivityType.listening
-activity_name = "to squeaks"
-
 ballChoices = (
     "It is certain.",
     "It is decidedly so.",
@@ -36,8 +33,11 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print(f'Setting presence to {activity_name}')
     
+    activity_type = discord.ActivityType.listening
+    activity_name = "squeaks"
+    
     activity = discord.Activity(type=activity_type, name=activity_name))
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="to squeaks"))
+    await client.change_presence(activity=activity)
 
 @client.event
 async def on_message(message):

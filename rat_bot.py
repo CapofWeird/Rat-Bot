@@ -1,4 +1,9 @@
 from random import choice
+from dotenv import load_dotenv
+import os
+
+# Load from .env
+load_dotenv()
 
 import discord
 
@@ -60,7 +65,7 @@ async def on_message(message):
         try:
             ball_result = choice(ball_choices)
             await message.channel.send(
-                "{0.author.mention} Squeek squeek! ({1})".format(message, ball_result),
+                "Squeek squeek! ({0})".format(ball_result),
                 mention_author=True, # Mention the user
                 reference=message # Set message_reference to the message.
             )
@@ -71,4 +76,4 @@ async def on_message(message):
                 reference=message
             )
 
-client.run('TOKEN')
+client.run(os.getenv('TOKEN'))

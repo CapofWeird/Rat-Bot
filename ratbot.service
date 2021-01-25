@@ -1,0 +1,14 @@
+[Unit]
+Description=Rat Bot
+After=network-online-target
+Require=network-online.target
+
+[Install]
+WantedBy=default.target
+
+[Service]
+# Change this to where the repo is cloned on your system.
+ExecStart=/bin/bash /home/hatofnormal/start-rat.sh
+# Change these to the user the bot should be run under.
+User=hatofnormal
+Group=hatofnormal

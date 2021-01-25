@@ -71,7 +71,7 @@ async def on_message(message):
     if message.content.startswith(prefix + "help"):
         try:
             await message.channel.send(
-                "Squeak Squeak!\n`oracle` 8-Ball :8ball:\n`coin` Flip a Coin :coin:\n`roll` Roll a Dice :game_die:",
+                "Squeak Squeak!\n`oracle` 8-Ball :8ball:\n`coin` Flip a Coin :coin:\n`roll` Roll a Dice :game_die:\n`invite` Invite me :rat:",
                 mention_author=True, # Mention the user
                 reference=message # Set message_reference to the message.
             )

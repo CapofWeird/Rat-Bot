@@ -7,6 +7,10 @@ Includes words that contain **rat** and **r a t**!
 ## Commands
 - **!oracle** - 8-ball command
   - Usage: `!oracle <whatever here>`
+- **!coin** - Flip a coin
+- **!roll** - Roll a dice
+- **!invite** - Sends invite link
+- **!help** - sends help message
 
 ## Invite
 

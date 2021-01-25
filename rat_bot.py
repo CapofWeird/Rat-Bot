@@ -60,9 +60,15 @@ async def on_message(message):
         try:
             ball_result = choice(ball_choices)
             await message.channel.send(
-                "{0.author.mention} Squeek squeek! ({1})".format(message, ball_result))
+                "{0.author.mention} Squeek squeek! ({1})".format(message, ball_result),
+                mention_author=True, # Mention the user
+                reference=message # Set message_reference to the message.
+            )
         except:
             await message.channel.send(
-                "Squeek squeek... (Something went wrong, make <@457637280539082763> fix it...")
+                "Squeek squeek... (Something went wrong, make <@457637280539082763> fix it...",
+                mention_author=True,
+                reference=message
+            )
 
 client.run('TOKEN')

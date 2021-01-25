@@ -1,6 +1,6 @@
 #!/bin/bash -x
 # Set paths here.
-RATDIR="/home/hatofnormal"
+RATDIR="/home/hatofnormal/Rat-bot"
 ENVFOLDER="env"
 URL="https://github.com/CapofWeird/Rat-Bot.git"
 # Update the rat

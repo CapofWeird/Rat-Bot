@@ -1,11 +1,11 @@
-from random import choice
-from dotenv import load_dotenv
 import os
+from random import choice
+
+import discord
+from dotenv import load_dotenv
 
 # Load from .env
 load_dotenv()
-
-import discord
 
 client = discord.Client()
 
@@ -35,14 +35,15 @@ ball_choices = (
     "Very doubtful."
 )
 
+
 # Define events
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-    print(f'Setting presence to {activity_name}')
-    
+    print(f"We have logged in as {client.user}")
+    print(f"Setting presence to {activity_name}")
     activity = discord.Activity(type=activity_type, name=activity_name)
     await client.change_presence(activity=activity)
+
 
 @client.event
 async def on_message(message):
@@ -51,13 +52,13 @@ async def on_message(message):
 
     # Rat emoji function
     lower_case_message = message.content.lower()
-    lower_case_message = ''.join(lower_case_message.split())
-    
+    lower_case_message = "".join(lower_case_message.split())
+
     if (("rat" in lower_case_message) or (client.user in message.mentions)):
         rat_message = lower_case_message
         rat_num = rat_message.count("rat")
-        rat_num += rat_message.count("671793984435126277")      
-        await message.channel.send(':rat: ' * rat_num)
+        rat_num += rat_message.count("671793984435126277")
+        await message.channel.send(":rat: " * rat_num)
 
     # Magic 8 Ball function
     if message.content.startswith("!oracle"):
@@ -65,15 +66,16 @@ async def on_message(message):
         try:
             ball_result = choice(ball_choices)
             await message.channel.send(
-                "Squeek squeek! ({0})".format(ball_result),
-                mention_author=True, # Mention the user
-                reference=message # Set message_reference to the message.
+                f"Squeek squeek! ({ball_result})",
+                mention_author=True,  # Mention the user
+                reference=message  # Set message_reference to the message.
             )
-        except:
+        except Exception:
             await message.channel.send(
-                "Squeek squeek... (Something went wrong, make <@457637280539082763> fix it...",
+                "Squeek squeek... "
+                "(Something went wrong, make <@457637280539082763> fix it...)",
                 mention_author=True,
                 reference=message
             )
 
-client.run(os.getenv('TOKEN'))
+client.run(os.getenv("TOKEN"))

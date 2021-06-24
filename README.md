@@ -7,11 +7,6 @@ Includes words that contain **rat** and **r a t**!
 ## Commands
 - **!oracle** - 8-ball command
   - Usage: `!oracle <whatever here>`
-- **!coin** - Flip a coin
-
-## Invite
-
-Invite with [this link!](https://discord.com/oauth2/authorize?client_id=671793984435126277&scope=bot)
 
 ## Requirements
 

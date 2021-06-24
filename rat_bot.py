@@ -1,4 +1,4 @@
-import os
+from os import getenv
 from random import choice
 
 import discord
@@ -11,7 +11,7 @@ client = discord.Client()
 
 activity_type = discord.ActivityType.listening
 activity_name = "squeaks"
-prefix = "!"
+prefix = '!'
 
 ball_choices = (
     "It is certain.",
@@ -35,8 +35,6 @@ ball_choices = (
     "Outlook not so good.",
     "Very doubtful."
 )
-
-coin_choices = ("Heads", "Tails")
 
 
 # Define events
@@ -81,21 +79,4 @@ async def on_message(message):
                 reference=message
             )
 
-    # Coin function
-    if message.content.startswith(prefix + "coin"):
-        try:
-            coin_result = choice(coin_choices)
-            await message.channel.send(
-                "Squeek squeek! :coin: ({0})".format(coin_result),
-                mention_author=True,  # Mention the user
-                reference=message  # Set message_reference to the message.
-            )
-        except Exception:
-            await message.channel.send(
-                "Squeek squeek... "
-                "(Something went wrong, make <@457637280539082763> fix it...)",
-                mention_author=True,
-                reference=message
-            )
-
-client.run(os.getenv("TOKEN"))
+client.run(getenv("TOKEN"))

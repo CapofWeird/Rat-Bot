@@ -16,6 +16,8 @@ Invite with [this link!](https://discord.com/oauth2/authorize?client_id=67179398
 
 The current Rat Bot install uses Python 3.6, so you will need to install Python 3.6 before doing this.
 
+> Your python command may be different than mentioned here. It could be `python`, `python3`, or `python3.X` (with x being the minor version.)
+
 It's recommended to run Rat Bot in a virtual environment. To do this, run `python3.6 -m venv env` and then activate the virtual environment.
 
 ## Installing
@@ -30,6 +32,27 @@ pip3 install -r requirements.txt
 # Change the Discord token at the bottom of rat_bot.py.
 python3.6 rat_bot.py # Or, configure start-rat.sh.
 ```
+
+## Running in Docker
+
+Rat Bot can be run in Docker using the provided `Dockerfile`. A number of utility scripts are included in the `utils/` folder to aid in this.
+
+First, build Rat Bot: `bash ./utils/build-ratty.sh`
+This step builds the Docker image for Rat Bot and is required before you're able to run it. The image will be tagged as `ratbot/ratbot:latest`.
+
+> Before you do this step, make sure you've made your `.env` file!
+
+Second, run Rat Bot: `bash ./utils/run-ratty-in-docker.sh`
+
+Rat Bot should now be running in Docker.
+
+### Stopping Rat Bot
+Run the stop script: `bash ./utils/stop-ratty-docker.sh`.
+
+### Removing Rat Bot from Docker
+> Either run this command as sudo, or add your user to the `docker` group.
+
+You can remove the Rat Bot container by running the following command: `docker rm ratbot`.
 
 ## Installing as a Service (Linux, `systemd`)
 

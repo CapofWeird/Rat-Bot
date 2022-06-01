@@ -1,4 +1,4 @@
-import os
+from os import getenv
 from random import choice
 
 import discord
@@ -78,4 +78,4 @@ async def on_message(message):
                 reference=message
             )
 
-client.run(os.getenv("TOKEN"))
+client.run(getenv("TOKEN"))

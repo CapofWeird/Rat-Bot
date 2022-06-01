@@ -8,10 +8,6 @@ Includes words that contain **rat** and **r a t**!
 - **!oracle** - 8-ball command
   - Usage: `!oracle <whatever here>`
 
-## Invite
-
-Invite with [this link!](https://discord.com/oauth2/authorize?client_id=671793984435126277&scope=bot)
-
 ## Requirements
 
 The current Rat Bot install uses Python 3.6, so you will need to install Python 3.6 before doing this.

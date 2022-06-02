@@ -58,7 +58,11 @@ async def on_message(message):
         rat_message = lower_case_message
         rat_num = rat_message.count("rat")
         rat_num += rat_message.count("671793984435126277")
-        await message.channel.send(":rat: " * rat_num)
+        if message.created_at.strftime("%m") == "06":  # Pride month!
+            emote = "<:priderat:981564427801358416> "
+        else:  # No special occasion, send the regular rat
+            emote = ":rat: "  # This is a base emoji so we don't need the ID
+        await message.channel.send(emote * rat_num)
 
     # Magic 8 Ball function
     if message.content.startswith("!oracle"):

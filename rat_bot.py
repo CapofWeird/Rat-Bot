@@ -9,8 +9,13 @@ load_dotenv()
 
 client = discord.Client()
 
+# Initialize the bot's activity status
 activity_type = discord.ActivityType.listening
 activity_name = "squeaks"
+activity = discord.Activity(type=activity_type, name=activity_name)
+
+admin = getenv("ADMIN_ID")  # User ID for admin user
+bot_id = getenv("BOT_ID")  # User ID for the bot
 
 ball_choices = (
     "It is certain.",
@@ -41,7 +46,6 @@ ball_choices = (
 async def on_ready():
     print(f"We have logged in as {client.user}")
     print(f"Setting presence to {activity_name}")
-    activity = discord.Activity(type=activity_type, name=activity_name)
     await client.change_presence(activity=activity)
 
 
@@ -57,7 +61,7 @@ async def on_message(message):
     if (("rat" in lower_case_message) or (client.user in message.mentions)):
         rat_message = lower_case_message
         rat_num = rat_message.count("rat")
-        rat_num += rat_message.count("671793984435126277")
+        rat_num += rat_message.count(bot_id)
         if message.created_at.strftime("%m") == "06":  # Pride month!
             emote = "<:priderat:981564427801358416> "
         else:  # No special occasion, send the regular rat
@@ -77,7 +81,7 @@ async def on_message(message):
         except Exception:
             await message.channel.send(
                 "Squeek squeek... "
-                "(Something went wrong, make <@457637280539082763> fix it...)",
+                f"(Something went wrong, make {admin} fix it...)",
                 mention_author=True,
                 reference=message
             )

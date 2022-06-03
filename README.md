@@ -43,6 +43,7 @@ Second, run Rat Bot: `bash ./utils/run-ratty-in-docker.sh`
 Rat Bot should now be running in Docker.
 
 ### Stopping Rat Bot
+~~Rat Bot cannot be stopped~~\
 Run the stop script: `bash ./utils/stop-ratty-docker.sh`.
 
 ### Removing Rat Bot from Docker

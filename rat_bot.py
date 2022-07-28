@@ -14,7 +14,7 @@ activity_type = discord.ActivityType.listening
 activity_name = "squeaks"
 activity = discord.Activity(type=activity_type, name=activity_name)
 
-admin = getenv("ADMIN_ID")  # User ID for admin user
+admin_id = getenv("ADMIN_ID")  # User ID for admin user
 bot_id = getenv("BOT_ID")  # User ID for the bot
 
 ball_choices = (
@@ -81,7 +81,7 @@ async def on_message(message):
         except Exception:
             await message.channel.send(
                 "Squeek squeek... "
-                f"(Something went wrong, make {admin} fix it...)",
+                f"(Something went wrong, make <@{admin_id}> fix it...)",
                 mention_author=True,
                 reference=message
             )

@@ -81,7 +81,7 @@ async def on_message(message):
         except Exception:
             await message.channel.send(
                 "Squeek squeek... "
-                f"(Something went wrong, make <@{admin_id}> fix it...)",
+                f"(Something went wrong, make {admin_id} fix it...)",
                 mention_author=True,
                 reference=message
             )
